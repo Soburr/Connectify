@@ -8,6 +8,9 @@ new class extends Component {
 
     public function sendMessage() {
        // dispatch a message
+       MessengerEvent::dispatch(Auth::user()->name, $this->message);
+
+       $this->message = '';
     }
 
     public function onMessageEvent() {
@@ -16,5 +19,5 @@ new class extends Component {
 }; ?>
 
 <div>
-
+   <x-chat-dialogue :messages="$this->messages" toMethod="sendMessage" color="blue" name="Chat"/>
 </div>

@@ -19,7 +19,7 @@ class MessengerEvent implements ShouldBroadcastNow
      */
     public function __construct(public string $name, public string $text)
     {
-
+        dd($name . '; ' . $text);
     }
 
     /**
